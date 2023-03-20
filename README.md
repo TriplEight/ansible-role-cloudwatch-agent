@@ -26,6 +26,30 @@ information about what JSON Patch is, see
 Python code from that repository is included in the `library`
 directory, so there is no extra action required by the user.
 
+## Install as an Ansible collection ##
+
+Create `requirements.yml` file in your playbook repository (or add to the existing file):
+
+```yaml
+collections:
+  - name: https://github.com/cisagov/ansible-role-cloudwatch-agent
+    type: git
+    version: develop
+```
+
+If you want to install a collection in the project space, run:
+
+```commandline
+mkdir collections
+ansible-galaxy collection install -f -r requirements.yml -p ./collections
+```
+
+If you want to install collections in the global space (`~/.ansible/collections`), run:
+
+```commandline
+ansible-galaxy collection install -f -r requirements.yml
+```
+
 ## Requirements ##
 
 None.
